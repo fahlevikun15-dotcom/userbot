@@ -114,20 +114,17 @@ async def start_home(client, message):
             f"<b>User: {sender_mention}\nID: `{sender_id}`\nName: {sender_name}\nHas started your bot.</b>",
         )
     text = await Message.welcome_message(client, message)
-    if image_start:
-        if "video" in image_start:
-            return await message.reply_video(
-                video=image_start["video"],
-                caption=text,
-                reply_markup=buttons,
-                effect_id=random.choice(Basic_Effect),
-            )
-        elif "animation" in image_start:
-            return await message.reply_animation(
-                animation=image_start["animation"],
-                caption=text,
-                reply_markup=buttons,
-                effect_id=random.choice(Basic_Effect),
+if image_start:
+    if "video" in image_start:
+        return await message.reply_video(
+            video=image_start["video"],
+            caption=text,
+            reply_markup=buttons
+        )
+    elif "animation" in image_start:
+        return await message.reply_animation(
+            animation=image_start["animation"],
+            caption=text
             )
         elif "photo" in image_start:
             return await message.reply_photo(
