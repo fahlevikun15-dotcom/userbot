@@ -122,13 +122,8 @@ if image_start:
             reply_markup=buttons
         )
     elif "animation" in image_start:
-        return await message.reply_animation(
-            animation=image_start["animation"],
-            caption=text
-            )
-        elif "photo" in image_start:
-            return await message.reply_photo(
-                photo=image_start["photo"],
+            return await message.reply_animation(
+                animation=image_start["animation"],
                 caption=text,
                 reply_markup=buttons,
                 effect_id=random.choice(Basic_Effect),
